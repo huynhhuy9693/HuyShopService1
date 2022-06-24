@@ -60,7 +60,7 @@ public class ProductController {
     {
         System.out.println("Creating Product " +product.getName());
         service.saveProduct(product);
-        return "redirect:/admin/products";
+        return "redirect:http://localhost:8080/admin_product/products";
     }
 
     @GetMapping ("product/delete/{id}")
@@ -69,7 +69,7 @@ public class ProductController {
         System.out.println("Fetching & Deleting Products with id " + id);
         Product product = service.findProductById(id);
         service.deleteProduct(id);
-        return "redirect:/admin/products";
+        return "redirect:http://localhost:8080/admin_product/products";
     }
 
     @GetMapping("product/details/{id}")
@@ -86,6 +86,6 @@ public class ProductController {
 
         System.out.println("Updating Product " + id);
         service.saveProduct(product);
-        return "redirect:/admin/products";
+        return "redirect:http://localhost:8080/admin_product/products";
     }
 }

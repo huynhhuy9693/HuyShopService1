@@ -26,7 +26,7 @@ public class CategotyController {
         List<Category> categoryList = service.findAllCategories();
         model.addAttribute("categories",categoryList);
         return "admin/category_list";
-//        return categoryList;
+
     }
 
     @GetMapping("/create_category")
@@ -57,7 +57,7 @@ public class CategotyController {
 
         System.out.println("Creating Category " +category.getName());
         service.saveCategory(category);
-        return "redirect:/admin/categories";
+        return "redirect:http://localhost:8080/admin_product/categories";
 
     }
 
@@ -68,13 +68,14 @@ public class CategotyController {
         System.out.println("Fetching & Deleting Category with id " + id);
         Category category = service.findCategoryById(id);
         service.deleteCategory(id);
-        return "redirect:/admin/categories";
+        return "redirect:http://localhost:8080/admin_product/categories";
     }
 
     @GetMapping("category/details/{id}")
     public String detailCategory(@PathVariable Long id, Model model)
     {
         System.out.println("category_update " + id);
+
         model.addAttribute("category",service.findCategoryById(id));
         return "admin/update_category";
     }
@@ -84,7 +85,7 @@ public class CategotyController {
 
         System.out.println("Updating Category "  + id);
         service.saveCategory(category);
-        return "redirect:/admin/categories";
+        return "redirect:http://localhost:8080/admin_product/categories";
 
     }
 }
